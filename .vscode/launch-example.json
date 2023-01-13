@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Loop",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "./cmd/loop/",
+            "env": {
+                "LATITUDE": "0",
+                "LONGITUDE": "0",
+                "ALERT_LENGTH_SECONDS": "30",
+                "WLED_IP": "http://192.168.1.100",
+                "APP_ROOT": "C:\\Users\\Path\\To\\sunset-alert",
+                "FAST_DEBUG": "true"
+            }
+        },
+        {
+            "name": "Test Pulse",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "./cmd/pulse/",
+            "env": {
+                "LATITUDE": "0",
+                "LONGITUDE": "0",
+                "ALERT_LENGTH_SECONDS": "30",
+                "WLED_IP": "http://192.168.1.100",
+                "APP_ROOT": "c:\\Users\\Path\\To\\sunset-alert",
+                "FAST_DEBUG": "true"
+            }
+        }
+    ]
+}
+
