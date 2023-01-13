@@ -20,7 +20,7 @@ func SunsetAlert() {
 
 	//Find sunset time
 	sunsetTime := GetSunsetTime(lat, lon)
-	fmt.Printf("The next sunset is at: %s", sunsetTime.String())
+	fmt.Printf("The next sunset is at: %s\n", sunsetTime.String())
 	//Then... let's say the program starts at noon. We'll need to sleep for a while.
 	now := time.Now()
 	//If sunset has not happened yet today, we can start our alert cycle
@@ -29,34 +29,34 @@ func SunsetAlert() {
 		hourBeforeSunset := sunsetTime.Add(-time.Hour)
 		if now.Before(hourBeforeSunset) || fastDebug {
 			sleepTime := hourBeforeSunset.Sub(now)
-			fmt.Printf("Sleeping program until one hour before sunset: %s", hourBeforeSunset.String())
+			fmt.Printf("Sleeping program until one hour before sunset: %s\n", hourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			//Then we call a yellow pulse for a bit
-			fmt.Printf("Sending first warning pulse")
+			fmt.Printf("Sending first warning pulse\n")
 			SendWLEDPulse()
-			fmt.Printf("First warning pulse complete")
+			fmt.Printf("First warning pulse complete\n")
 		}
 		//Then we sleep until a half hour before sunset
 		halfHourBeforeSunset := sunsetTime.Add(-30 * time.Minute)
 		if now.Before(halfHourBeforeSunset) || fastDebug {
 			sleepTime := halfHourBeforeSunset.Sub(now)
-			fmt.Printf("Sleeping program until one half hour before sunset: %s", halfHourBeforeSunset.String())
+			fmt.Printf("Sleeping program until one half hour before sunset: %s\n", halfHourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			//Then we call a faster yellow pulse for a minute
-			fmt.Printf("Sending second warning pulse")
+			fmt.Printf("Sending second warning pulse\n")
 			SendWLEDPulse()
-			fmt.Printf("Second warning pulse complete")
+			fmt.Printf("Second warning pulse complete\n")
 		}
 		//Then we sleep until 15 minutes before sunset
 		quarterHourBeforeSunset := sunsetTime.Add(-15 * time.Minute)
 		if now.Before(quarterHourBeforeSunset) || fastDebug {
 			sleepTime := quarterHourBeforeSunset.Sub(now)
-			fmt.Printf("Sleeping program until one quarter hour before sunset: %s", quarterHourBeforeSunset.String())
+			fmt.Printf("Sleeping program until one quarter hour before sunset: %s\n", quarterHourBeforeSunset.String())
 			time.Sleep(sleepTime)
-			fmt.Printf("Sending third warning pulse")
+			fmt.Printf("Sending third warning pulse\n")
 			//Then we call an even faster yellow pulse for a minute
 			SendWLEDPulse()
-			fmt.Printf("Third warning pulse complete")
+			fmt.Printf("Third warning pulse complete\n")
 		}
 	}
 
