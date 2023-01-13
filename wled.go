@@ -19,7 +19,7 @@ func SendWLEDPulse() error {
 	workingDir, _ := os.Getwd()
 	fmt.Printf(workingDir)
 
-	appRoot := os.Getenv("APP_ROOT")
+	appRoot := os.Getenv("SUNSET_APP_ROOT")
 	fullPath := appRoot + "/config/wled_yellow_alert_post.json"
 	configFile, err := os.Open(fullPath)
 	if err != nil {
@@ -29,9 +29,9 @@ func SendWLEDPulse() error {
 	byteValue, _ := ioutil.ReadAll(configFile)
 	alertPulseString := string(byteValue)
 
-	alertLength, err := strconv.Atoi(os.Getenv("ALERT_LENGTH_SECONDS"))
+	alertLength, err := strconv.Atoi(os.Getenv("SUNSET_ALERT_LENGTH_SECONDS"))
 	if err != nil {
-		fmt.Printf("ALERT_LENGTH_SECONDS environment variable not found, or not an integer. Defaulting to 5 seconds.\n")
+		fmt.Printf("SUNSET_ALERT_LENGTH_SECONDS environment variable not found, or not an integer. Defaulting to 5 seconds.\n")
 		alertLength = 5
 	}
 	sendWLEDCommand(alertPulseString)
@@ -42,7 +42,7 @@ func SendWLEDPulse() error {
 }
 
 func sendWLEDCommand(bodyString string) {
-	base_url := os.Getenv("WLED_IP")
+	base_url := os.Getenv("SUNSET_WLED_IP")
 	url := base_url + "/json/state"
 
 	var jsonprep = []byte(bodyString)
@@ -55,7 +55,7 @@ func sendWLEDCommand(bodyString string) {
 }
 
 func getWLEDSettings() string {
-	base_url := os.Getenv("WLED_IP")
+	base_url := os.Getenv("SUNSET_WLED_IP")
 	url := base_url + "/json/state"
 
 	response, err := http.Get(url)

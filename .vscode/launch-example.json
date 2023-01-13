@@ -8,12 +8,12 @@
             "mode": "auto",
             "program": "./cmd/loop/",
             "env": {
-                "LATITUDE": "0",
-                "LONGITUDE": "0",
-                "ALERT_LENGTH_SECONDS": "30",
-                "WLED_IP": "http://192.168.1.100",
-                "APP_ROOT": "C:\\Users\\Path\\To\\sunset-alert",
-                "FAST_DEBUG": "true"
+                "SUNSET_LATITUDE": "0",
+                "SUNSET_LONGITUDE": "0",
+                "SUNSET_ALERT_LENGTH_SECONDS": "30",
+                "SUNSET_WLED_IP": "http://192.168.1.100",
+                "SUNSET_APP_ROOT": "C:\\Users\\Path\\To\\sunset-alert",
+                "SUNSET_FAST_DEBUG": "true"
             }
         },
         {
@@ -23,12 +23,12 @@
             "mode": "auto",
             "program": "./cmd/pulse/",
             "env": {
-                "LATITUDE": "0",
-                "LONGITUDE": "0",
-                "ALERT_LENGTH_SECONDS": "30",
-                "WLED_IP": "http://192.168.1.100",
-                "APP_ROOT": "c:\\Users\\Path\\To\\sunset-alert",
-                "FAST_DEBUG": "true"
+                "SUNSET_LATITUDE": "0",
+                "SUNSET_LONGITUDE": "0",
+                "SUNSET_ALERT_LENGTH_SECONDS": "30",
+                "SUNSET_WLED_IP": "http://192.168.1.100",
+                "SUNSET_APP_ROOT": "c:\\Users\\Path\\To\\sunset-alert",
+                "SUNSET_FAST_DEBUG": "true"
             }
         }
     ]

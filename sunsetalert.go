@@ -10,11 +10,11 @@ import (
 )
 
 func SunsetAlert() {
-	lat := os.Getenv("LATITUDE")
-	lon := os.Getenv("LONGITUDE")
-	fastDebug, err := strconv.ParseBool(os.Getenv("FAST_DEBUG"))
+	lat := os.Getenv("SUNSET_LATITUDE")
+	lon := os.Getenv("SUNSET_LONGITUDE")
+	fastDebug, err := strconv.ParseBool(os.Getenv("SUNSET_FAST_DEBUG"))
 	if err != nil {
-		fmt.Printf("FAST_DEBUG environment variable must be either 'true' or 'false'.\n")
+		fmt.Printf("SUNSET_FAST_DEBUG environment variable must be either 'true' or 'false'.\n")
 		return
 	}
 
