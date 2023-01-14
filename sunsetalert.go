@@ -28,7 +28,8 @@ func SunsetAlert() {
 		//Then we sleep until an hour before sunset
 		hourBeforeSunset := sunsetTime.Add(-time.Hour)
 		if now.Before(hourBeforeSunset) || fastDebug {
-			sleepTime := hourBeforeSunset.Sub(now)
+			//Subtract a bit of sleep time to help the times work out
+			sleepTime := hourBeforeSunset.Sub(now) - 30
 			fmt.Printf("Sleeping program until one hour before sunset: %s\n", hourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			//Then we call a yellow pulse for a bit
@@ -39,7 +40,10 @@ func SunsetAlert() {
 		//Then we sleep until a half hour before sunset
 		halfHourBeforeSunset := sunsetTime.Add(-30 * time.Minute)
 		if now.Before(halfHourBeforeSunset) || fastDebug {
-			sleepTime := halfHourBeforeSunset.Sub(now)
+			//Refresh Now
+			now = time.Now()
+			//Subtract a bit of sleep time to help the times work out
+			sleepTime := halfHourBeforeSunset.Sub(now) - 30
 			fmt.Printf("Sleeping program until one half hour before sunset: %s\n", halfHourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			//Then we call a faster yellow pulse for a minute
@@ -50,7 +54,10 @@ func SunsetAlert() {
 		//Then we sleep until 15 minutes before sunset
 		quarterHourBeforeSunset := sunsetTime.Add(-15 * time.Minute)
 		if now.Before(quarterHourBeforeSunset) || fastDebug {
-			sleepTime := quarterHourBeforeSunset.Sub(now)
+			//Refresh Now
+			now = time.Now()
+			//Subtract a bit of sleep time to help the times work out
+			sleepTime := quarterHourBeforeSunset.Sub(now) - 30
 			fmt.Printf("Sleeping program until one quarter hour before sunset: %s\n", quarterHourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			fmt.Printf("Sending third warning pulse\n")
