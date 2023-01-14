@@ -44,7 +44,7 @@ func SunsetAlert() {
 			now = time.Now()
 			//Subtract a bit of sleep time to help the times work out
 			sleepTime := halfHourBeforeSunset.Sub(now) - 30
-			fmt.Printf("Sleeping program until one half hour before sunset: %s\n", halfHourBeforeSunset.String())
+			fmt.Printf("Sleeping program "+sleepTime.String()+" seconds, until one half hour before sunset: %s\n", halfHourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			//Then we call a faster yellow pulse for a minute
 			fmt.Printf("Sending second warning pulse\n")
@@ -58,7 +58,7 @@ func SunsetAlert() {
 			now = time.Now()
 			//Subtract a bit of sleep time to help the times work out
 			sleepTime := quarterHourBeforeSunset.Sub(now) - 30
-			fmt.Printf("Sleeping program until one quarter hour before sunset: %s\n", quarterHourBeforeSunset.String())
+			fmt.Printf("Sleeping program "+sleepTime.String()+" seconds, until one quarter hour before sunset: %s\n", quarterHourBeforeSunset.String())
 			time.Sleep(sleepTime)
 			fmt.Printf("Sending third warning pulse\n")
 			//Then we call an even faster yellow pulse for a minute
